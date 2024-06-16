@@ -13,8 +13,9 @@ function query() {
     return Promise.resolve(bugs)
 }
 
-function getById() {
-
+function getById(bugId) {
+    const bug = bugs.find(bug => bug._id === bugId)
+    return Promise.resolve(bug)
 }
 
 function remove() {
