@@ -10,7 +10,7 @@ export const bugService = {
 var bugs = utilService.readJsonFile('./data/bug.json')
 
 function query() {
-
+    return Promise.resolve(bugs)
 }
 
 function getById() {
