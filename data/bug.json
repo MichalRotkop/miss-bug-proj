@@ -1,0 +1,23 @@
+[
+    {
+        "_id": "abc123",
+        "title": "Cannot save a new bug",
+        "description": "problem when clicking Save",
+        "severity": 3,
+        "createdAt": 1542107359454
+    },
+    {
+        "_id": "efg456",
+        "title": "Cannot edit bug",
+        "description": "problem when clicking Save",
+        "severity": 5,
+        "createdAt": 1542107359438
+    },
+    {
+        "_id": "hij789",
+        "title": "Cannot remove bug",
+        "description": "problem when clicking Delete",
+        "severity": 1,
+        "createdAt": 1542107359446
+    }
+]
