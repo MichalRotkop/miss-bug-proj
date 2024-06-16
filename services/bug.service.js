@@ -25,7 +25,7 @@ function remove(bugId) {
 }
 
 function save(bugToSave) {
-    bugToSave.createdAt= Date.now()
+    bugToSave.createdAt = Date.now()
     if (bugToSave._id) {
         const idx = bugs.findIndex(bug => bug._id === bugToSave._id)
         bugs.splice(idx, 1, bugToSave)

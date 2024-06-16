@@ -28,13 +28,6 @@
     "createdAt": 1718560814184
   },
   {
-    "_id": "K3AzQ",
-    "title": "new bug",
-    "severity": 4,
-    "description": "",
-    "createdAt": 1718560832430
-  },
-  {
     "_id": "bW6dE",
     "title": "test",
     "severity": 3,
