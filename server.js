@@ -17,13 +17,15 @@ app.get('/api/bug/save', (req, res) => {
 })
 
 app.get('/api/bug/:bugId', (req, res) => {
-    console.log('req.params', req.params)
     const { bugId } = req.params
     bugService.getById(bugId)
         .then(bug => res.send(bug))
 })
 
 app.get('/api/bug/:bugId/remove', (req, res) => {
+    const { bugId } = req.params
+    bugService.remove(bugId)
+        .then(() => res.send(`Removed bug ${bugId}...`))
 })
 
 app.listen(3030, () => console.log('Server ready at port 3030'))
