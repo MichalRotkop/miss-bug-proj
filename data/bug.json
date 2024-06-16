@@ -1,23 +1,51 @@
 [
-    {
-        "_id": "abc123",
-        "title": "Cannot save a new bug",
-        "description": "problem when clicking Save",
-        "severity": 3,
-        "createdAt": 1542107359454
-    },
-    {
-        "_id": "efg456",
-        "title": "Cannot edit bug",
-        "description": "problem when clicking Save",
-        "severity": 5,
-        "createdAt": 1542107359438
-    },
-    {
-        "_id": "hij789",
-        "title": "Cannot remove bug",
-        "description": "problem when clicking Delete",
-        "severity": 1,
-        "createdAt": 1542107359446
-    }
+  {
+    "_id": "abc123",
+    "title": "undefined bug",
+    "severity": 5,
+    "description": "",
+    "createdAt": 1718561136759
+  },
+  {
+    "_id": "efg456",
+    "title": "Cannot edit bug",
+    "description": "problem when clicking Save",
+    "severity": 5,
+    "createdAt": 1542107359438
+  },
+  {
+    "_id": "hij789",
+    "title": "Cannot remove bug",
+    "description": "problem when clicking Delete",
+    "severity": 1,
+    "createdAt": 1542107359446
+  },
+  {
+    "_id": "kMWKd",
+    "title": "new bug",
+    "severity": 4,
+    "description": "",
+    "createdAt": 1718560814184
+  },
+  {
+    "_id": "K3AzQ",
+    "title": "new bug",
+    "severity": 4,
+    "description": "",
+    "createdAt": 1718560832430
+  },
+  {
+    "_id": "bW6dE",
+    "title": "test",
+    "severity": 3,
+    "description": "",
+    "createdAt": 1718560954125
+  },
+  {
+    "_id": "kRp1m",
+    "title": "BIG BUG",
+    "severity": 7,
+    "description": "really big bug",
+    "createdAt": 1718561061504
+  }
 ]

@@ -14,6 +14,15 @@ app.get('/api/bug', (req, res) => {
 })
 
 app.get('/api/bug/save', (req, res) => {
+    const { _id, title, severity, description } = req.query
+    const bugToSave = {
+        _id,
+        title: title || 'undefined bug',
+        severity: +severity || 0,
+        description: description || ''
+    }
+    bugService.save(bugToSave)
+        .then(savedBug => res.send(savedBug))
 })
 
 app.get('/api/bug/:bugId', (req, res) => {

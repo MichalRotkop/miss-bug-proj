@@ -24,8 +24,17 @@ function remove(bugId) {
     return _saveBugsToFile()
 }
 
-function save() {
- 
+function save(bugToSave) {
+    bugToSave.createdAt= Date.now()
+    if (bugToSave._id) {
+        const idx = bugs.findIndex(bug => bug._id === bugToSave._id)
+        bugs.splice(idx, 1, bugToSave)
+    } else {
+        bugToSave._id = utilService.makeId()
+        bugs.push(bugToSave)
+    }
+    return _saveBugsToFile()
+        .then(() => bugToSave)
 }
 
 function _saveBugsToFile() {
