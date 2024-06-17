@@ -21,24 +21,17 @@
     "createdAt": 1542107359446
   },
   {
-    "_id": "kMWKd",
-    "title": "new bug",
-    "severity": 4,
-    "description": "",
-    "createdAt": 1718560814184
-  },
-  {
     "_id": "bW6dE",
     "title": "test",
-    "severity": 3,
-    "description": "",
-    "createdAt": 1718560954125
+    "severity": 6,
+    "description": "lala",
+    "createdAt": 1718628196574
   },
   {
-    "_id": "kRp1m",
-    "title": "BIG BUG",
-    "severity": 7,
-    "description": "really big bug",
-    "createdAt": 1718561061504
+    "_id": "38Stq",
+    "title": "saved bug",
+    "severity": 11,
+    "description": "a bee",
+    "createdAt": 1718628221893
   }
 ]
