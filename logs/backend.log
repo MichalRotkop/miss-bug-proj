@@ -49,3 +49,30 @@
 17.6.2024, 15:43:16 - INFO - Server ready at port 3030
 17.6.2024, 15:43:42 - INFO - Server ready at port 3030
 17.6.2024, 15:43:52 - INFO - Server ready at port 3030
+17.6.2024, 15:52:35 - INFO - Server ready at port 3030
+17.6.2024, 17:32:29 - INFO - Server ready at port 3030
+18.6.2024, 13:35:02 - INFO - Server ready at port 3030
+18.6.2024, 14:24:14 - INFO - Server ready at port 3030
+18.6.2024, 14:27:35 - INFO - Server ready at port 3030
+18.6.2024, 14:27:41 - ERROR - Couldn't get bug... | TypeError: visitedBugs.push is not a function
+18.6.2024, 14:29:20 - INFO - Server ready at port 3030
+18.6.2024, 14:31:12 - INFO - Server ready at port 3030
+18.6.2024, 14:31:16 - ERROR - Couldn't get bug... | TypeError: visitedBugs.push is not a function
+18.6.2024, 14:38:18 - INFO - Server ready at port 3030
+18.6.2024, 14:38:38 - ERROR - Couldn't get bug... | TypeError: visitedBugs.push is not a function
+18.6.2024, 14:38:50 - INFO - Server ready at port 3030
+18.6.2024, 14:39:18 - INFO - Server ready at port 3030
+18.6.2024, 14:39:20 - ERROR - Couldn't get bug... | TypeError: visitedBugs.push is not a function
+18.6.2024, 14:54:27 - ERROR - Couldn't get bug... | TypeError: visitedBugs.push is not a function
+18.6.2024, 17:59:19 - INFO - Server ready at port 3030
+18.6.2024, 18:00:12 - INFO - Server ready at port 3030
+18.6.2024, 18:17:06 - INFO - Server ready at port 3030
+18.6.2024, 18:49:49 - INFO - Server ready at port 3030
+18.6.2024, 18:50:02 - INFO - Server ready at port 3030
+18.6.2024, 18:59:52 - INFO - Server ready at port 3030
+18.6.2024, 19:01:02 - INFO - Server ready at port 3030
+18.6.2024, 19:01:42 - INFO - Server ready at port 3030
+18.6.2024, 19:05:00 - INFO - Server ready at port 3030
+18.6.2024, 19:05:43 - INFO - Server ready at port 3030
+18.6.2024, 19:05:45 - INFO - Server ready at port 3030
+18.6.2024, 19:06:27 - INFO - Server ready at port 3030

@@ -16,7 +16,8 @@ export function BugDetails() {
                 setBug(bug)
             })
             .catch(err => {
-                showErrorMsg('Cannot load bug')
+                if (err.response.status === 401) showErrorMsg('Wait for a bit')
+                else showErrorMsg('Cannot load bug')
             })
     }, [])
 
