@@ -10,7 +10,12 @@ app.use(express.static('public'))
 app.use(cookieParser())
 
 app.get('/api/bug', (req, res) => {
-    bugService.query()
+    const filterBy = {
+        title: req.query.title || '',
+        minSeverity: +req.query.minSeverity || 0,
+    }
+
+    bugService.query(filterBy)
         .then(bugs => res.send(bugs))
         .catch(err => {
             loggerService.error(`Couldn't get bugs...`, err)
@@ -47,7 +52,7 @@ app.get('/api/bug/:bugId', (req, res) => {
             .then(bug => {
                 if (!visitedBug) {
                     visitedBugs.push(bug)
-                    res.cookie('visitedBugs', visitedBugs, { maxAge: 7000})
+                    res.cookie('visitedBugs', visitedBugs, { maxAge: 7000 })
                 }
                 res.send(bug)
 
@@ -56,7 +61,7 @@ app.get('/api/bug/:bugId', (req, res) => {
             .catch(err => {
                 loggerService.error(`Couldn't get bug...`, err)
                 res.status(500).send(`Couldn't get bug...`)
-            }) 
+            })
     }
 })
 

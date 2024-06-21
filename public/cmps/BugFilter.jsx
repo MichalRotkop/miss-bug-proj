@@ -30,24 +30,15 @@ export function BugFilter({ filterBy, onSetFilterBy }) {
         setFilterByToEdit(prevFilter => ({ ...prevFilter, [field]: value }))
     }
 
-    function onSubmitFilter(ev) {
-        ev.preventDefault()
-        onSetFilterBy(filterByToEdit)
-    }
-
     const { title, severity } = filterByToEdit
     return (
         <section className="bug-filter">
             <h2>Bugs Filter</h2>
-            <form onSubmit={onSubmitFilter}>
                 <label htmlFor="title">Name: </label>
                 <input value={title} onChange={handleChange} type="text" placeholder="By Title" id="title" name="title" />
 
                 <label htmlFor="severity">Min Severity: </label>
                 <input value={severity} onChange={handleChange} type="number" placeholder="By Severity" id="severity" name="minSeverity" />
-
-                <button>Set Filter</button>
-            </form>
         </section>
     )
 }
