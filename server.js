@@ -56,7 +56,7 @@ app.get('/api/bug/:bugId', (req, res) => {
             .catch(err => {
                 loggerService.error(`Couldn't get bug...`, err)
                 res.status(500).send(`Couldn't get bug...`)
-            })
+            }) 
     }
 })
 
