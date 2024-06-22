@@ -37,10 +37,6 @@ function query(filterBy) {
     const startIdx = filterBy.pageIdx * PAGE_SIZE
     filteredBugs = filteredBugs.slice(startIdx, startIdx + PAGE_SIZE)
 
-
-
-
-
     return Promise.resolve(filteredBugs)
 }
 
