@@ -5,7 +5,7 @@
     "severity": 5,
     "description": "",
     "createdAt": 1718561136759,
-    "labels" : "['critical', 'need-CR']"
+    "labels": "['critical', 'need-CR']"
   },
   {
     "_id": "efg456",
@@ -13,7 +13,7 @@
     "description": "problem when clicking Save",
     "severity": 5,
     "createdAt": 1542107359438,
-    "labels" : "['dev-branch']"
+    "labels": "['dev-branch']"
   },
   {
     "_id": "hij789",
@@ -21,7 +21,7 @@
     "description": "problem when clicking Delete",
     "severity": 1,
     "createdAt": 1542107359446,
-    "labels" : "['need-CR', 'dev-branch']"
+    "labels": "['need-CR', 'dev-branch']"
   },
   {
     "_id": "bW6dE",
@@ -29,7 +29,7 @@
     "severity": 6,
     "description": "lala",
     "createdAt": 1718628196574,
-    "labels" : "['critical', 'need-CR', 'dev-branch']"
+    "labels": "['critical', 'need-CR', 'dev-branch']"
   },
   {
     "_id": "c8qYZ",
@@ -37,7 +37,7 @@
     "severity": 6,
     "description": "bad bug",
     "createdAt": 1718628196531,
-    "labels" : "['critical', 'need-CR', 'dev-branch']"
+    "labels": "['critical', 'need-CR', 'dev-branch']"
   },
   {
     "_id": "tS3pM",
@@ -45,6 +45,13 @@
     "severity": 6,
     "description": "infinite bug",
     "createdAt": 1718628196562,
-    "labels" : "['critical', 'need-CR', 'dev-branch']"
+    "labels": "['critical', 'need-CR', 'dev-branch']"
+  },
+  {
+    "_id": "ABIY2",
+    "title": "bugggggggggggggggggg",
+    "severity": 15,
+    "description": "out of coffee bug",
+    "createdAt": 1719071683861
   }
 ]

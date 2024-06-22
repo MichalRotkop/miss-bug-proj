@@ -8,6 +8,7 @@ export const bugService = {
 }
 
 var bugs = utilService.readJsonFile('./data/bug.json')
+const PAGE_SIZE = 3
 
 function query(filterBy) {
     var filteredBugs = bugs
@@ -19,6 +20,27 @@ function query(filterBy) {
     if (filterBy.minSeverity) {
         filteredBugs = filteredBugs.filter(bug => bug.severity >= filterBy.minSeverity)
     }
+
+    if (filterBy.labels) {
+        console.log('filterBy.labels', filterBy.labels)
+        // const checkedLabels = []
+        // for (labelName in filterBy.labels) {
+        //     if (filterBy.labels[labelName] === true) checkedLabels.push(labelName)
+        // }
+        // console.log('checkedLabels',checkedLabels)
+
+        // filteredBugs = filteredBugs.filter(bug => {
+        //     return bug.labels.some(label => checkedLabels.includes(label))
+        // })
+    }
+
+    const startIdx = filterBy.pageIdx * PAGE_SIZE
+    filteredBugs = filteredBugs.slice(startIdx, startIdx + PAGE_SIZE)
+
+
+
+
+
     return Promise.resolve(filteredBugs)
 }
 

@@ -9,7 +9,7 @@ export const bugService = {
 const BASE_URL = '/api/bug'
 
 function query(filterBy = {}) {
-    return axios.get(BASE_URL, {params: filterBy})
+    return axios.get(BASE_URL, { params: filterBy })
         .then(res => res.data)
 }
 
@@ -28,5 +28,5 @@ function save(bug) {
 }
 
 function getDefaultFilter() {
-    return { title: '', minSeverity: '' }
+    return { title: '', minSeverity: '', labels: [], pageIdx: 0 }
 }
