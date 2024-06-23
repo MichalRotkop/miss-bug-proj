@@ -1,28 +1,5 @@
 [
   {
-    "_id": "abc123",
-    "title": "undefined bug",
-    "severity": 20,
-    "description": "",
-    "createdAt": 1719143192249
-  },
-  {
-    "_id": "efg456",
-    "title": "Cannot edit bug",
-    "description": "problem when clicking Save",
-    "severity": 5,
-    "createdAt": 1542107359438,
-    "labels": "['dev-branch']"
-  },
-  {
-    "_id": "hij789",
-    "title": "Cannot remove bug",
-    "description": "problem when clicking Delete",
-    "severity": 1,
-    "createdAt": 1542107359446,
-    "labels": "['need-CR', 'dev-branch']"
-  },
-  {
     "_id": "bW6dE",
     "title": "test",
     "severity": 6,
@@ -36,7 +13,7 @@
     "severity": 6,
     "description": "bad bug",
     "createdAt": 1718628196531,
-    "labels": "['critical', 'need-CR', 'dev-branch']"
+    "labels": "['need-CR', 'dev-branch']"
   },
   {
     "_id": "tS3pM",
@@ -44,20 +21,34 @@
     "severity": 6,
     "description": "infinite bug",
     "createdAt": 1718628196562,
-    "labels": "['critical', 'need-CR', 'dev-branch']"
+    "labels": "['critical', 'need-CR']"
   },
   {
     "title": "post bug",
     "severity": 30,
     "description": "newly beckend bug",
     "createdAt": 1719143744344,
-    "_id": "w0iOi"
+    "_id": "w0iOi",
+    "labels": "['critical']"
   },
   {
     "title": "restful Bug",
     "severity": 100,
     "description": "sleeping",
     "createdAt": 1719161266632,
-    "_id": "9II32"
+    "_id": "9II32",
+    "labels": "['dev-branch']"
+  },
+  {
+    "title": "undefined bug",
+    "severity": 0,
+    "description": "",
+    "createdAt": 1719175164621,
+    "_id": "EyUex",
+    "labels": [
+      "critical",
+      "need-CR",
+      "dev-branch"
+    ]
   }
 ]

@@ -30,7 +30,7 @@ export function BugFilter({ filterBy, onSetFilterBy }) {
                 break;
         }
 
-        setFilterByToEdit(prevFilter => ({ ...prevFilter, [field]: value, pageIdx: 0}))
+        setFilterByToEdit(prevFilter => ({ ...prevFilter, [field]: value, pageIdx: 0 }))
     }
 
     function onGetPage(diff) {
@@ -51,6 +51,16 @@ export function BugFilter({ filterBy, onSetFilterBy }) {
         setFilterByToEdit(prevFilter => ({ ...prevFilter, sortBy: { [prop]: dir } }))
     }
 
+    function onHandleLabelsChange({ target }) {
+        var value = []
+        if (target.checked) {
+            value = [...filterByToEdit.labels, target.name]
+        } else {
+            value = filterByToEdit.labels.filter(label => label !== target.name)
+        }
+        setFilterByToEdit(prevFilter => ({ ...prevFilter, labels: value, pageIdx: 0 }))
+    }
+
     const { title, severity, pageIdx } = filterByToEdit
     return (
         <section className="bug-filter">
@@ -64,13 +74,13 @@ export function BugFilter({ filterBy, onSetFilterBy }) {
             <fieldset>
                 <legend>Labels:</legend>
 
-                <input type="checkbox" id="critical" name="critical" onChange={handleChange} />
+                <input type="checkbox" id="critical" name="critical" onChange={onHandleLabelsChange} />
                 <label htmlFor="critical">Critical</label>
 
-                <input type="checkbox" id="need-cr" name="need-cr" onChange={handleChange} />
+                <input type="checkbox" id="need-cr" name="need-CR" onChange={onHandleLabelsChange} />
                 <label htmlFor="need-cr">Need-CR</label>
 
-                <input type="checkbox" id="dev-branch" name="dev-branch" onChange={handleChange} />
+                <input type="checkbox" id="dev-branch" name="dev-branch" onChange={onHandleLabelsChange} />
                 <label htmlFor="dev-branch">Dev-Branch</label>
             </fieldset>
 

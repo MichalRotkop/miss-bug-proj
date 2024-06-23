@@ -19,11 +19,10 @@ app.get('/api/bug/', (req, res) => {
         pageIdx: req.query.pageIdx || 0,
         sortBy: req.query.sortBy || {}
     }
-    console.log('filterBy', filterBy)
-
     bugService.query(filterBy)
         .then(bugs => res.send(bugs))
         .catch(err => {
+            console.log('err:',err)
             loggerService.error(`Couldn't get bugs...`, err)
             res.status(500).send(`Couldn't get bugs...`)
         })

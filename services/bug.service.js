@@ -21,17 +21,11 @@ function query(filterBy) {
         filteredBugs = filteredBugs.filter(bug => bug.severity >= filterBy.minSeverity)
     }
 
-    if (filterBy.labels) {
-        console.log('filterBy.labels', filterBy.labels)
-        // const checkedLabels = []
-        // for (labelName in filterBy.labels) {
-        //     if (filterBy.labels[labelName] === true) checkedLabels.push(labelName)
-        // }
-        // console.log('checkedLabels',checkedLabels)
-
-        // filteredBugs = filteredBugs.filter(bug => {
-        //     return bug.labels.some(label => checkedLabels.includes(label))
-        // })
+    if (filterBy.labels && filterBy.labels.length > 0) {
+        filteredBugs = filteredBugs.filter(bug => {
+            // return bug.labels.some(label => filterBy.labels.includes(label))
+            return filterBy.labels.every(label => bug.labels.includes(label))
+        })
     }
 
     const startIdx = filterBy.pageIdx * PAGE_SIZE
@@ -58,6 +52,7 @@ function save(bugToSave) {
         bugs.splice(idx, 1, bugToSave)
     } else {
         bugToSave._id = utilService.makeId()
+        bugToSave.labels = ['critical', 'need-CR', 'dev-branch']
         bugs.push(bugToSave)
     }
     return _saveBugsToFile()
