@@ -52,5 +52,12 @@
     "description": "newly beckend bug",
     "createdAt": 1719143744344,
     "_id": "w0iOi"
+  },
+  {
+    "title": "restful Bug",
+    "severity": 100,
+    "description": "sleeping",
+    "createdAt": 1719161266632,
+    "_id": "9II32"
   }
 ]

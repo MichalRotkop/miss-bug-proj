@@ -30,7 +30,7 @@ export function BugFilter({ filterBy, onSetFilterBy }) {
                 break;
         }
 
-        setFilterByToEdit(prevFilter => ({ ...prevFilter, [field]: value }))
+        setFilterByToEdit(prevFilter => ({ ...prevFilter, [field]: value, pageIdx: 0}))
     }
 
     function onGetPage(diff) {
