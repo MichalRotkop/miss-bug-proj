@@ -28,6 +28,20 @@ function query(filterBy) {
         })
     }
 
+    if (filterBy.sortBy) {
+        switch (filterBy.sortBy) {
+            case 'title':
+                filteredBugs = filteredBugs.sort((bugA, bugB) => bugA.title.localeCompare(bugB.title) * filterBy.sortDir)
+                break;
+            case 'severity':
+                filteredBugs = filteredBugs.sort((bugA, bugB) => (bugA.severity - bugB.severity) * filterBy.sortDir)
+                break;
+            case 'createdAt':
+                filteredBugs = filteredBugs.sort((bugA, bugB) => (bugA.createdAt - bugB.createdAt) * filterBy.sortDir)
+                break;
+        }
+    }
+
     const startIdx = filterBy.pageIdx * PAGE_SIZE
     filteredBugs = filteredBugs.slice(startIdx, startIdx + PAGE_SIZE)
 

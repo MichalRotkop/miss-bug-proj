@@ -17,12 +17,13 @@ app.get('/api/bug/', (req, res) => {
         minSeverity: +req.query.minSeverity || 0,
         labels: req.query.labels || [],
         pageIdx: req.query.pageIdx || 0,
-        sortBy: req.query.sortBy || {}
+        sortBy: req.query.sortBy || '',
+        sortDir: req.query.sortDir || 1
     }
     bugService.query(filterBy)
         .then(bugs => res.send(bugs))
         .catch(err => {
-            console.log('err:',err)
+            console.log('err:', err)
             loggerService.error(`Couldn't get bugs...`, err)
             res.status(500).send(`Couldn't get bugs...`)
         })
@@ -45,7 +46,7 @@ app.put('/api/bug/:bugId', (req, res) => {
 })
 
 app.post('/api/bug/', (req, res) => {
-    const {title, severity, description } = req.body
+    const { title, severity, description } = req.body
     const bugToSave = {
         title: title || 'undefined bug',
         severity: +severity || 0,

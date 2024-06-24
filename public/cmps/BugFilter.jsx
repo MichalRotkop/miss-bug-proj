@@ -21,9 +21,7 @@ export function BugFilter({ filterBy, onSetFilterBy }) {
                 break;
 
             case 'checkbox':
-                // field = 'labels'
-                // value = target.checked
-                value = target.checked
+                value = target.checked ? -1 : 1
                 break
 
             default:
@@ -36,19 +34,6 @@ export function BugFilter({ filterBy, onSetFilterBy }) {
     function onGetPage(diff) {
         if (filterByToEdit.pageIdx + diff < 0) return
         setFilterByToEdit(prevFilter => ({ ...prevFilter, pageIdx: prevFilter.pageIdx + diff }))
-    }
-
-    function onSetSort({ target }) {
-        const dir = target.checked ? -1 : 1
-        const prop = target.name === 'sort-select' ? 'all' : target.value
-        // var dir = 1
-        // var prop = 'all'
-        // if (target.type === 'checkbox') {
-        //     dir = target.checked ? -1 : 1
-        // } else {
-        //     prop = target.value
-        // }
-        setFilterByToEdit(prevFilter => ({ ...prevFilter, sortBy: { [prop]: dir } }))
     }
 
     function onHandleLabelsChange({ target }) {
@@ -91,15 +76,15 @@ export function BugFilter({ filterBy, onSetFilterBy }) {
             </div>
 
             <div>
-                <label htmlFor="sort-by">Sort By:</label>
-                <select id="sort-by" name="sort-select" onChange={onSetSort}>
+                <label htmlFor="sortBy">Sort By:</label>
+                <select id="sortBy" name="sortBy" onChange={handleChange}>
                     <option value="">Select</option>
                     <option value="title">Title</option>
                     <option value="severity">Severity</option>
                     <option value="createdAt">Created At</option>
                 </select>
-                <label htmlFor="sort-dir">Descending</label>
-                <input type="checkbox" id="sort-dir" onChange={onSetSort} />
+                <label htmlFor="sortDir">Descending</label>
+                <input type="checkbox" id="sortDir" name="sortDir" onChange={handleChange} />
             </div>
         </section>
     )

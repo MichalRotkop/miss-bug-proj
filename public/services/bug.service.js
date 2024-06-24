@@ -17,7 +17,7 @@ function getById(bugId) {
     return axios.get(BASE_URL + `/${bugId}`)
         .then(res => res.data)
         .catch(err => {
-            console.log('err:',err)
+            console.log('err:', err)
             throw err
         })
 }
@@ -38,5 +38,5 @@ function save(bug) {
 }
 
 function getDefaultFilter() {
-    return { title: '', minSeverity: '', labels: [], pageIdx: 0, sortBy: {} }
+    return { title: '', minSeverity: '', labels: [], pageIdx: 0, sortBy: '', sortDir: 1 }
 }
