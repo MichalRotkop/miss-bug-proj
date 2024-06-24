@@ -5,7 +5,11 @@
     "severity": 6,
     "description": "lala",
     "createdAt": 1718628196574,
-    "labels": "['critical', 'need-CR', 'dev-branch']"
+    "labels": [
+      "critical",
+      "need-CR",
+      "dev-branch"
+    ]
   },
   {
     "_id": "c8qYZ",
@@ -13,7 +17,10 @@
     "severity": 6,
     "description": "bad bug",
     "createdAt": 1718628196531,
-    "labels": "['need-CR', 'dev-branch']"
+    "labels": [
+      "need-CR",
+      "dev-branch"
+    ]
   },
   {
     "_id": "tS3pM",
@@ -21,7 +28,10 @@
     "severity": 6,
     "description": "infinite bug",
     "createdAt": 1718628196562,
-    "labels": "['critical', 'need-CR']"
+    "labels": [
+      "critical",
+      "need-CR"
+    ]
   },
   {
     "title": "post bug",
@@ -29,7 +39,9 @@
     "description": "newly beckend bug",
     "createdAt": 1719143744344,
     "_id": "w0iOi",
-    "labels": "['critical']"
+    "labels": [
+      "critical"
+    ]
   },
   {
     "title": "restful Bug",
@@ -37,7 +49,9 @@
     "description": "sleeping",
     "createdAt": 1719161266632,
     "_id": "9II32",
-    "labels": "['dev-branch']"
+    "labels": [
+      "dev-branch"
+    ]
   },
   {
     "title": "undefined bug",
