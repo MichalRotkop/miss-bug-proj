@@ -1,6 +1,6 @@
 const { useState, useEffect } = React
 
-export function BugFilter({ filterBy, onSetFilterBy, labels: availableLabels, }) {
+export function BugFilter({ filterBy, onSetFilterBy, labels: availableLabels, pageCount }) {
     const [filterByToEdit, setFilterByToEdit] = useState(filterBy)
 
     useEffect(() => {
@@ -29,8 +29,10 @@ export function BugFilter({ filterBy, onSetFilterBy, labels: availableLabels, })
     }
 
     function onGetPage(diff) {
-        if (filterByToEdit.pageIdx + diff < 0) return
-        setFilterByToEdit(prevFilter => ({ ...prevFilter, pageIdx: prevFilter.pageIdx + diff }))
+        let pageIdx = filterByToEdit.pageIdx + diff
+        if (pageIdx < 0) pageIdx = pageCount - 1
+        if (pageIdx > pageCount - 1) pageIdx = 0
+        setFilterByToEdit(prevFilter => ({ ...prevFilter, pageIdx }))
     }
 
     function onHandleLabelChange({ target }) {

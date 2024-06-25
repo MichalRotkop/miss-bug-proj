@@ -5,7 +5,8 @@ export const bugService = {
     remove,
     getDefaultFilter,
     getLabels,
-    downloadPdf
+    downloadPdf,
+    getPageCount
 }
 
 const BASE_URL = '/api/bug'
@@ -41,6 +42,11 @@ function save(bug) {
 
 function getLabels() {
     return axios.get(BASE_URL + '/labels')
+        .then(res => res.data)
+}
+
+function getPageCount() {
+    return axios.get(BASE_URL + '/pageCount')
         .then(res => res.data)
 }
 

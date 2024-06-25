@@ -33,12 +33,21 @@ app.get('/api/bug/', (req, res) => {
 
 app.get('/api/bug/labels', (req, res) => {
     bugService.getLabels()
-        .then(labels => {
-            return res.send(labels)})
+        .then(labels => res.send(labels))
         .catch(err => {
             console.log('err:', err)
             loggerService.error(`Couldn't get Labels...`, err)
             res.status(500).send(`Couldn't get Labels...`)
+        })
+})
+
+app.get('/api/bug/pageCount', (req, res) => {
+    bugService.getPageCount()
+        .then(pageCount => res.send(pageCount + ''))
+        .catch(err => {
+            console.log('err:', err)
+            loggerService.error(`Couldn't get pageCount...`, err)
+            res.status(500).send(`Couldn't get pageCount...`)
         })
 })
 

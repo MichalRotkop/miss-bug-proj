@@ -12,18 +12,6 @@
     ]
   },
   {
-    "_id": "bW6dE",
-    "title": "test",
-    "severity": 6,
-    "description": "lala",
-    "createdAt": 1718628196574,
-    "labels": [
-      "critical",
-      "need-CR",
-      "dev-branch"
-    ]
-  },
-  {
     "_id": "c8qYZ",
     "title": "resting bug",
     "severity": 6,
@@ -75,5 +63,16 @@
     ],
     "createdAt": 1719316196911,
     "_id": "lGIEP"
+  },
+  {
+    "title": "buggy",
+    "severity": 70,
+    "description": "a bug",
+    "labels": [
+      "critical",
+      "annoying"
+    ],
+    "createdAt": 1719337261657,
+    "_id": "69JQ3"
   }
 ]

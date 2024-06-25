@@ -248,3 +248,18 @@
 25.6.2024, 19:30:00 - INFO - Server ready at port 3030
 25.6.2024, 19:37:28 - INFO - Server ready at port 3030
 25.6.2024, 19:37:42 - INFO - Server ready at port 3030
+25.6.2024, 19:56:48 - INFO - Server ready at port 3030
+25.6.2024, 19:56:50 - ERROR - Couldn't get Labels... | TypeError: bug.labels is not iterable
+25.6.2024, 19:57:14 - ERROR - Couldn't get Labels... | TypeError: bug.labels is not iterable
+25.6.2024, 19:57:27 - ERROR - Couldn't get Labels... | TypeError: bug.labels is not iterable
+25.6.2024, 19:58:12 - INFO - Server ready at port 3030
+25.6.2024, 20:11:09 - INFO - Server ready at port 3030
+25.6.2024, 20:14:25 - INFO - Server ready at port 3030
+25.6.2024, 20:15:03 - INFO - Server ready at port 3030
+25.6.2024, 20:20:57 - INFO - Server ready at port 3030
+25.6.2024, 20:21:10 - INFO - Server ready at port 3030
+25.6.2024, 20:21:29 - INFO - Server ready at port 3030
+25.6.2024, 20:22:25 - INFO - Server ready at port 3030
+25.6.2024, 20:22:39 - INFO - Server ready at port 3030
+25.6.2024, 20:22:49 - INFO - Server ready at port 3030
+25.6.2024, 20:41:07 - INFO - Server ready at port 3030

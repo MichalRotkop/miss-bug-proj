@@ -6,6 +6,7 @@ export const bugService = {
     remove,
     save,
     getLabels,
+    getPageCount
 }
 
 var bugs = utilService.readJsonFile('./data/bug.json')
@@ -67,7 +68,6 @@ function save(bugToSave) {
         bugs.splice(idx, 1, bugToSave)
     } else {
         bugToSave._id = utilService.makeId()
-        // bugToSave.labels = ['critical', 'need-CR', 'dev-branch']
         bugs.push(bugToSave)
     }
     return _saveBugsToFile()
@@ -81,6 +81,11 @@ function getLabels() {
         }, [])
         return [...new Set(bugLabels)]
     })
+}
+
+function getPageCount() {
+    return query()
+        .then(bugs => Math.ceil(bugs.length / PAGE_SIZE))
 }
 
 function _saveBugsToFile() {

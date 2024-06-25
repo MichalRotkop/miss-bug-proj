@@ -9,13 +9,16 @@ const { useState, useEffect, useRef } = React
 export function BugIndex() {
   const [bugs, setBugs] = useState([])
   const [labels, setLabels] = useState([])
+  const [pageCount, setPageCount] = useState(0)
 
   const [filterBy, setFilterBy] = useState(bugService.getDefaultFilter())
   const debouncedSetFilterBy = useRef(utilService.debounce(onSetFilterBy, 500))
 
   useEffect(() => {
     loadLabels()
+    loadPageCount()
   }, [])
+
 
   useEffect(() => {
     loadBugs()
@@ -39,11 +42,21 @@ export function BugIndex() {
       })
   }
 
+  function loadPageCount() {
+    bugService.getPageCount()
+      .then(pageCount => setPageCount(+pageCount))
+      .catch(err => {
+        console.log('err', err)
+        showErrorMsg('Cannot load page count')
+      })
+  }
+
   function onRemoveBug(bugId) {
     bugService.remove(bugId)
       .then(() => {
         console.log('Deleted Succesfully!')
         setBugs(prevBugs => prevBugs.filter((bug) => bug._id !== bugId))
+        loadPageCount()
         showSuccessMsg('Bug removed')
       })
       .catch((err) => {
@@ -70,6 +83,7 @@ export function BugIndex() {
       .then((savedBug) => {
         setBugs(prevBugs => [...prevBugs, savedBug])
         showSuccessMsg('Bug added')
+        loadPageCount()
       })
       .catch((err) => {
         console.log('Error from onAddBug ->', err)
@@ -116,7 +130,12 @@ export function BugIndex() {
       <h3>Bugs App</h3>
       <main>
         <button onClick={onDownloadPdf}>Download PDF</button>
-        <BugFilter filterBy={filterBy} onSetFilterBy={debouncedSetFilterBy.current} labels={labels} />
+        <BugFilter
+          pageCount={pageCount}
+          filterBy={filterBy}
+          onSetFilterBy={debouncedSetFilterBy.current}
+          labels={labels}
+        />
         <button onClick={onAddBug}>Add Bug ⛐</button>
         {bugs && bugs.length
           ? <BugList bugs={bugs} onRemoveBug={onRemoveBug} onEditBug={onEditBug} />
