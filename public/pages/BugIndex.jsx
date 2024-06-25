@@ -95,6 +95,18 @@ export function BugIndex() {
       })
   }
 
+  function onDownloadPdf() {
+    bugService.downloadPdf()
+      .then(() => {
+        console.log('PDF DOWNLOAD');
+        showSuccessMsg('Download pdf successfully')
+      })
+      .catch(err => {
+        console.log('err:', err)
+        showErrorMsg('Cannot download pdf')
+      })
+  }
+
   function onSetFilterBy(filterBy) {
     setFilterBy(prevFilterBy => ({ ...prevFilterBy, ...filterBy }))
   }
@@ -102,8 +114,9 @@ export function BugIndex() {
   return (
     <main>
       <h3>Bugs App</h3>
-      <BugFilter filterBy={filterBy} onSetFilterBy={debouncedSetFilterBy.current} labels={labels} />
       <main>
+        <button onClick={onDownloadPdf}>Download PDF</button>
+        <BugFilter filterBy={filterBy} onSetFilterBy={debouncedSetFilterBy.current} labels={labels} />
         <button onClick={onAddBug}>Add Bug ⛐</button>
         {bugs && bugs.length
           ? <BugList bugs={bugs} onRemoveBug={onRemoveBug} onEditBug={onEditBug} />

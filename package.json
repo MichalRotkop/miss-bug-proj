@@ -13,6 +13,7 @@
   "dependencies": {
     "cookie-parser": "^1.4.6",
     "express": "^4.19.2",
-    "follow-redirects": "^1.15.6"
+    "follow-redirects": "^1.15.6",
+    "pdfkit": "^0.15.0"
   }
 }

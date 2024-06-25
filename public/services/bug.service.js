@@ -5,6 +5,7 @@ export const bugService = {
     remove,
     getDefaultFilter,
     getLabels,
+    downloadPdf
 }
 
 const BASE_URL = '/api/bug'
@@ -45,6 +46,11 @@ function getLabels() {
             return res.data
 
         })
+}
+
+function downloadPdf() {
+    return axios.get(BASE_URL + '/download')
+    .then(red => red.data)
 }
 
 function getDefaultFilter() {

@@ -5,7 +5,7 @@ export const bugService = {
     getById,
     remove,
     save,
-    getLabels
+    getLabels,
 }
 
 var bugs = utilService.readJsonFile('./data/bug.json')

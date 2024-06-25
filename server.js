@@ -1,5 +1,7 @@
 import express from 'express'
 import cookieParser from 'cookie-parser'
+import fs from 'fs'
+import PDFDocument from 'pdfkit'
 
 import { bugService } from './services/bug.service.js'
 import { loggerService } from './services/logger.service.js'
@@ -30,15 +32,29 @@ app.get('/api/bug/', (req, res) => {
 })
 
 app.get('/api/bug/labels', (req, res) => {
-    console.log('hi from server.js')
     bugService.getLabels()
         .then(labels => {
-            console.log('labels from server.js:',labels)
             return res.send(labels)})
         .catch(err => {
             console.log('err:', err)
             loggerService.error(`Couldn't get Labels...`, err)
             res.status(500).send(`Couldn't get Labels...`)
+        })
+})
+
+app.get('/api/bug/download', (req, res) => {
+    const doc = new PDFDocument()
+    doc.pipe(fs.createWriteStream('bugs.pdf'))
+    doc.fontSize(25).text('BUGS LIST').fontSize(16)
+    bugService.query()
+        .then((bugs) => {
+            bugs.forEach((bug) => {
+                const bugTxt = `${bug.title}: ${bug.description}. (severity: ${bug.severity})`
+                doc.text(bugTxt)
+            })
+
+            doc.end()
+            res.end()
         })
 })
 
