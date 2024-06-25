@@ -4,7 +4,8 @@ export const bugService = {
     query,
     getById,
     remove,
-    save
+    save,
+    getLabels
 }
 
 var bugs = utilService.readJsonFile('./data/bug.json')
@@ -12,6 +13,7 @@ const PAGE_SIZE = 3
 
 function query(filterBy) {
     var filteredBugs = bugs
+    if (!filterBy) return Promise.resolve(filteredBugs)
     if (filterBy.title) {
         const regExp = new RegExp(filterBy.title, 'i')
         filteredBugs = filteredBugs.filter(bug => regExp.test(bug.title))
@@ -21,9 +23,8 @@ function query(filterBy) {
         filteredBugs = filteredBugs.filter(bug => bug.severity >= filterBy.minSeverity)
     }
 
-    if (filterBy.labels && filterBy.labels.length > 0) {
+    if (filterBy.labels && filterBy.labels.length > 0) { // (filterBy.labels?.length) 
         filteredBugs = filteredBugs.filter(bug => {
-            // return bug.labels.some(label => filterBy.labels.includes(label))
             return filterBy.labels.every(label => bug.labels.includes(label))
         })
     }
@@ -66,11 +67,20 @@ function save(bugToSave) {
         bugs.splice(idx, 1, bugToSave)
     } else {
         bugToSave._id = utilService.makeId()
-        bugToSave.labels = ['critical', 'need-CR', 'dev-branch']
+        // bugToSave.labels = ['critical', 'need-CR', 'dev-branch']
         bugs.push(bugToSave)
     }
     return _saveBugsToFile()
         .then(() => bugToSave)
+}
+
+function getLabels() {
+    return query().then(bugs => {
+        const bugLabels = bugs.reduce((acc, bug) => {
+            return [...acc, ...bug.labels]
+        }, [])
+        return [...new Set(bugLabels)]
+    })
 }
 
 function _saveBugsToFile() {

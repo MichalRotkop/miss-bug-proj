@@ -1,5 +1,17 @@
 [
   {
+    "title": "undefined bug",
+    "severity": 0,
+    "description": "",
+    "createdAt": 1719175164621,
+    "_id": "EyUex",
+    "labels": [
+      "critical",
+      "need-CR",
+      "dev-branch"
+    ]
+  },
+  {
     "_id": "bW6dE",
     "title": "test",
     "severity": 6,
@@ -54,15 +66,14 @@
     ]
   },
   {
-    "title": "undefined bug",
-    "severity": 0,
-    "description": "",
-    "createdAt": 1719175164621,
-    "_id": "EyUex",
+    "title": "LABEL BUG",
+    "severity": 2,
+    "description": "bugs for labeling",
     "labels": [
-      "critical",
-      "need-CR",
-      "dev-branch"
-    ]
+      "ugly",
+      "annoying"
+    ],
+    "createdAt": 1719316196911,
+    "_id": "lGIEP"
   }
 ]

@@ -16,9 +16,9 @@ app.get('/api/bug/', (req, res) => {
         title: req.query.title || '',
         minSeverity: +req.query.minSeverity || 0,
         labels: req.query.labels || [],
-        pageIdx: req.query.pageIdx || 0,
+        pageIdx: +req.query.pageIdx || 0,
         sortBy: req.query.sortBy || '',
-        sortDir: req.query.sortDir || 1
+        sortDir: +req.query.sortDir || 1
     }
     bugService.query(filterBy)
         .then(bugs => res.send(bugs))
@@ -26,6 +26,19 @@ app.get('/api/bug/', (req, res) => {
             console.log('err:', err)
             loggerService.error(`Couldn't get bugs...`, err)
             res.status(500).send(`Couldn't get bugs...`)
+        })
+})
+
+app.get('/api/bug/labels', (req, res) => {
+    console.log('hi from server.js')
+    bugService.getLabels()
+        .then(labels => {
+            console.log('labels from server.js:',labels)
+            return res.send(labels)})
+        .catch(err => {
+            console.log('err:', err)
+            loggerService.error(`Couldn't get Labels...`, err)
+            res.status(500).send(`Couldn't get Labels...`)
         })
 })
 
@@ -46,11 +59,12 @@ app.put('/api/bug/:bugId', (req, res) => {
 })
 
 app.post('/api/bug/', (req, res) => {
-    const { title, severity, description } = req.body
+    const { title, severity, description, labels } = req.body
     const bugToSave = {
         title: title || 'undefined bug',
         severity: +severity || 0,
-        description: description || ''
+        description: description || '',
+        labels: labels || []
     }
     bugService.save(bugToSave)
         .then(savedBug => res.send(savedBug))

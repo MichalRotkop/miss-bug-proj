@@ -4,6 +4,7 @@ export const bugService = {
     save,
     remove,
     getDefaultFilter,
+    getLabels,
 }
 
 const BASE_URL = '/api/bug'
@@ -35,6 +36,15 @@ function save(bug) {
         return axios.post(BASE_URL, bug)
             .then(res => res.data)
     }
+}
+
+function getLabels() {
+    return axios.get(BASE_URL + '/labels')
+        .then(res => {
+            console.log('res.data:',res.data)
+            return res.data
+
+        })
 }
 
 function getDefaultFilter() {

@@ -1,28 +1,46 @@
 import { bugService } from '../services/bug.service.js'
+import { utilService } from '../services/util.service.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { BugList } from '../cmps/BugList.jsx'
 import { BugFilter } from '../cmps/BugFilter.jsx'
-import { utilService } from '../services/util.service.js'
 
 const { useState, useEffect, useRef } = React
 
 export function BugIndex() {
   const [bugs, setBugs] = useState([])
+  const [labels, setLabels] = useState([])
+
   const [filterBy, setFilterBy] = useState(bugService.getDefaultFilter())
-  
   const debouncedSetFilterBy = useRef(utilService.debounce(onSetFilterBy, 500))
+
+  useEffect(() => {
+    loadLabels()
+  }, [])
 
   useEffect(() => {
     loadBugs()
   }, [filterBy])
 
   function loadBugs() {
-    bugService.query(filterBy).then(setBugs)
+    bugService.query(filterBy)
+      .then(setBugs)
+      .catch(err => {
+        console.log('err', err)
+        showErrorMsg('Cannot load bugs')
+      })
+  }
+
+  function loadLabels() {
+    bugService.getLabels()
+      .then(labels => setLabels(labels))
+      .catch(err => {
+        console.log('err', err)
+        showErrorMsg('Cannot load labels')
+      })
   }
 
   function onRemoveBug(bugId) {
-    bugService
-      .remove(bugId)
+    bugService.remove(bugId)
       .then(() => {
         console.log('Deleted Succesfully!')
         setBugs(prevBugs => prevBugs.filter((bug) => bug._id !== bugId))
@@ -35,15 +53,21 @@ export function BugIndex() {
   }
 
   function onAddBug() {
+    const title = prompt('Bug title?')
+    const severity = +prompt('Bug severity?')
+    const description = prompt('Bug description?')
+    const labelsInput = prompt('Bug labels (comma-separated)?')
+    const labels = labelsInput ? labelsInput.split(',').map(label => label.trim()) : []
+
     const bug = {
-      title: prompt('Bug title?'),
-      severity: +prompt('Bug severity?'),
-      description: prompt('Bug description?'),
+      title,
+      severity,
+      description,
+      labels,
     }
-    bugService
-      .save(bug)
+
+    bugService.save(bug)
       .then((savedBug) => {
-        console.log('Added Bug', savedBug)
         setBugs(prevBugs => [...prevBugs, savedBug])
         showSuccessMsg('Bug added')
       })
@@ -57,10 +81,9 @@ export function BugIndex() {
     const severity = +prompt('New severity?')
     const description = prompt('New description?')
     const bugToSave = { ...bug, severity, description }
-    bugService
-      .save(bugToSave)
+    bugService.save(bugToSave)
       .then((savedBug) => {
-        console.log('Updated Bug:', savedBug)
+        // console.log('Updated Bug:', savedBug)
         setBugs(prevBugs => prevBugs.map((currBug) =>
           currBug._id === savedBug._id ? savedBug : currBug
         ))
@@ -79,10 +102,13 @@ export function BugIndex() {
   return (
     <main>
       <h3>Bugs App</h3>
-      <BugFilter filterBy={filterBy} onSetFilterBy={debouncedSetFilterBy.current} />
+      <BugFilter filterBy={filterBy} onSetFilterBy={debouncedSetFilterBy.current} labels={labels} />
       <main>
         <button onClick={onAddBug}>Add Bug ⛐</button>
-        <BugList bugs={bugs} onRemoveBug={onRemoveBug} onEditBug={onEditBug} />
+        {bugs && bugs.length
+          ? <BugList bugs={bugs} onRemoveBug={onRemoveBug} onEditBug={onEditBug} />
+          : <h1>No Bugs Today...</h1>
+        }
       </main>
     </main>
   )
