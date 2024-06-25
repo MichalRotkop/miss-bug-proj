@@ -71,8 +71,8 @@ export function BugFilter({ filterBy, onSetFilterBy, labels: availableLabels, })
 
             <fieldset>
                 <legend>Labels:</legend>
-                {availableLabels.map(label => {
-                    return <label htmlFor={label}>
+                {availableLabels.map((label, idx) => {
+                    return <label htmlFor={label} key={idx}>
                         <input
                             type="checkbox"
                             id={label}
@@ -84,7 +84,7 @@ export function BugFilter({ filterBy, onSetFilterBy, labels: availableLabels, })
                     </label>
                 })}
             </fieldset>
-            
+
             <div>
                 <label htmlFor="sortBy">Sort By:</label>
                 <select id="sortBy" name="sortBy" onChange={handleChange}>

@@ -41,16 +41,12 @@ function save(bug) {
 
 function getLabels() {
     return axios.get(BASE_URL + '/labels')
-        .then(res => {
-            console.log('res.data:',res.data)
-            return res.data
-
-        })
+        .then(res => res.data)
 }
 
 function downloadPdf() {
     return axios.get(BASE_URL + '/download')
-    .then(red => red.data)
+        .then(red => red.data)
 }
 
 function getDefaultFilter() {
