@@ -31,13 +31,18 @@ function remove(bugId) {
 }
 
 function save(bug) {
-    if (bug._id) {
-        return axios.put(BASE_URL + `/${bug._id}`, bug)
-            .then(res => res.data)
-    } else {
-        return axios.post(BASE_URL, bug)
-            .then(res => res.data)
-    }
+
+    const method = bug._id ? 'put' : 'post'
+    return axios[method](BASE_URL, bug)
+        .then(res => res.data)
+
+    // if (bug._id) {
+    //     return axios.put(BASE_URL + `/${bug._id}`, bug)
+    //         .then(res => res.data)
+    // } else {
+    //     return axios.post(BASE_URL, bug)
+    //         .then(res => res.data)
+    // }
 }
 
 function getLabels() {

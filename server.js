@@ -67,11 +67,11 @@ app.get('/api/bug/download', (req, res) => {
         })
 })
 
-app.put('/api/bug/:bugId', (req, res) => {
+app.put('/api/bug', (req, res) => {
     const { _id, title, severity, description } = req.body
     const bugToSave = {
         _id,
-        title: title || 'undefined bug',
+        title: title || '',
         severity: +severity || 0,
         description: description || ''
     }
@@ -86,7 +86,7 @@ app.put('/api/bug/:bugId', (req, res) => {
 app.post('/api/bug/', (req, res) => {
     const { title, severity, description, labels } = req.body
     const bugToSave = {
-        title: title || 'undefined bug',
+        title: title || '',
         severity: +severity || 0,
         description: description || '',
         labels: labels || []
