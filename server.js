@@ -69,6 +69,9 @@ app.get('/api/bug/download', (req, res) => {
 })
 
 app.put('/api/bug', (req, res) => {
+    const loggedInUser = userService.validateToken(res.cookies.loginToken)
+    if (!loggedInUser) return res.status(401).send('Cannot update Bug')
+
     const { _id, title, severity, description } = req.body
     const bugToSave = {
         _id,
@@ -76,7 +79,7 @@ app.put('/api/bug', (req, res) => {
         severity: +severity || 0,
         description: description || ''
     }
-    bugService.save(bugToSave)
+    bugService.save(bugToSave, loggedInUser)
         .then(savedBug => res.send(savedBug))
         .catch(err => {
             loggerService.error(`Couldn't save bug...`, err)
@@ -85,6 +88,9 @@ app.put('/api/bug', (req, res) => {
 })
 
 app.post('/api/bug/', (req, res) => {
+    const loggedInUser = userService.validateToken(res.cookies.loginToken)
+    if (!loggedInUser) return res.status(401).send('Cannot add Bug')
+
     const { title, severity, description, labels } = req.body
     const bugToSave = {
         title: title || '',
@@ -92,7 +98,7 @@ app.post('/api/bug/', (req, res) => {
         description: description || '',
         labels: labels || []
     }
-    bugService.save(bugToSave)
+    bugService.save(bugToSave, loggedInUser)
         .then(savedBug => res.send(savedBug))
         .catch(err => {
             loggerService.error(`Couldn't save bug...`, err)
@@ -127,8 +133,11 @@ app.get('/api/bug/:bugId', (req, res) => {
 })
 
 app.delete('/api/bug/:bugId', (req, res) => {
+    const loggedInUser = userService.validateToken(res.cookies.loginToken)
+    if (!loggedInUser) return res.status(401).send('Cannot remove Bug')
+
     const { bugId } = req.params
-    bugService.remove(bugId)
+    bugService.remove(bugId, loggedInUser)
         .then(() => res.send(`Removed bug ${bugId}...`))
         .catch(err => {
             loggerService.error(`Couldn't remove bug...`, err)
@@ -143,13 +152,12 @@ app.post('/api/auth/signup', (req, res) => {
     userService.save(credentials)
         .then(user => {
             const loginToken = userService.getLoginToken(user)
-            console.log('loginToken:',loginToken)
             res.cookie('loginToken', loginToken)
             res.send(user)
         })
         .catch(err => {
             loggerService.error(`Couldn't signup user...`, err)
-            res.status(500).send(`Couldn't signup user...`)
+            res.status(400).send(`Couldn't signup user...`)
         })
 })
 // app.post('/api/auth/signup', (req, res) => {
@@ -168,6 +176,20 @@ app.post('/api/auth/signup', (req, res) => {
 //             res.status(500).send(`Couldn't signup user...`)
 //         })
 // })
+
+app.get('/api/auth/login', (req, res) => {
+    const credentials = req.body
+    userService.checkLogin(credentials)
+        .then(user => {
+            const loginToken = userService.getLoginToken(user)
+            res.cookie('loginToken', loginToken)
+            res.send(user)
+        })
+        .catch(err => {
+            loggerService.error(`Invalid Credentials...`, err)
+            res.status(401).send(`Invalid Credentials...`)
+        })
+})
 
 
 const port = 3030
