@@ -135,5 +135,9 @@ app.delete('/api/bug/:bugId', (req, res) => {
         })
 })
 
+// userRoute
+
+
+
 const port = 3030
 app.listen(port, () => loggerService.info(`Server ready at port ${port}`))
