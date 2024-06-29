@@ -46,7 +46,6 @@ function save(user) {
         fullname: user.fullname,
         isAdmin: user.isAdmin,
     }))
-
 }
 
 function checkLogin({ username, password }) {

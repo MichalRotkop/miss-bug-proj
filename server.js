@@ -4,6 +4,7 @@ import fs from 'fs'
 import PDFDocument from 'pdfkit'
 
 import { bugService } from './services/bug.service.js'
+import { userService } from './services/user.service.js'
 import { loggerService } from './services/logger.service.js'
 
 const app = express()
@@ -137,6 +138,36 @@ app.delete('/api/bug/:bugId', (req, res) => {
 
 // userRoute
 
+app.post('/api/auth/signup', (req, res) => {
+    const credentials = req.body
+    userService.save(credentials)
+        .then(user => {
+            const loginToken = userService.getLoginToken(user)
+            console.log('loginToken:',loginToken)
+            res.cookie('loginToken', loginToken)
+            res.send(user)
+        })
+        .catch(err => {
+            loggerService.error(`Couldn't signup user...`, err)
+            res.status(500).send(`Couldn't signup user...`)
+        })
+})
+// app.post('/api/auth/signup', (req, res) => {
+//     const { username, fullname, password, isAdmin } = req.body
+//     const userToSave = {
+//         username: username || '',
+//         fullname: fullname || '',
+//         password: password || '',
+//         isAdmin: isAdmin || false
+//     }
+
+//     userService.save(userToSave)
+//         .then(savedUser => res.send(savedUser))
+//         .catch(err => {
+//             loggerService.error(`Couldn't signup user...`, err)
+//             res.status(500).send(`Couldn't signup user...`)
+//         })
+// })
 
 
 const port = 3030
