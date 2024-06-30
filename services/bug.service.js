@@ -9,6 +9,7 @@ export const bugService = {
     getPageCount
 }
 
+
 var bugs = utilService.readJsonFile('./data/bug.json')
 const PAGE_SIZE = 3
 
@@ -28,6 +29,11 @@ function query(filterBy) {
         filteredBugs = filteredBugs.filter(bug => {
             return filterBy.labels.every(label => bug.labels.includes(label))
         })
+    }
+
+    if (filterBy.userId) {
+        console.log('hi, this is userId:', filterBy.userId);
+        filteredBugs = filteredBugs.filter(bug => bug.creator._id === filterBy.userId)
     }
 
     if (filterBy.sortBy) {

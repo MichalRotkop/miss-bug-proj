@@ -1,4 +1,3 @@
-
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedInUser'
 const BASE_URL = '/api/auth'
 
@@ -6,9 +5,9 @@ export const userService = {
     login,
     signup,
     logout,
-    // get,
     getLoggedinUser,
-    getEmptyCredentials
+    getEmptyCredentials,
+    getUser,
 }
 
 function login(credentials) {
@@ -46,4 +45,9 @@ function getEmptyCredentials() {
         password: '',
         fullname: ''
     }
+}
+
+function getUser(userId) {
+    return axios.get(BASE_URL + `/${userId}`)
+        .then(res => res.data)
 }

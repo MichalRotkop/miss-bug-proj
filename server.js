@@ -21,7 +21,8 @@ app.get('/api/bug/', (req, res) => {
         labels: req.query.labels || [],
         pageIdx: +req.query.pageIdx || 0,
         sortBy: req.query.sortBy || '',
-        sortDir: +req.query.sortDir || 1
+        sortDir: +req.query.sortDir || 1,
+        userId: req.query.userId || ''
     }
     bugService.query(filterBy)
         .then(bugs => res.send(bugs))
@@ -192,9 +193,20 @@ app.post('/api/auth/login', (req, res) => {
         })
 })
 
+
 app.post('/api/auth/logout', (req, res) => {
     res.clearCookie('loginToken')
     res.send('logged-out!')
+})
+
+app.get('/api/auth/:userId', (req, res) => {
+    const { userId } = req.params
+    userService.getById(userId)
+        .then(user => res.send(user))
+        .catch(err => {
+            loggerService.error(`Cannot load user...`, err)
+            res.status(400).send(`Cannot load user...`)
+        })
 })
 
 const port = 3030

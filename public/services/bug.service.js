@@ -61,5 +61,5 @@ function downloadPdf() {
 }
 
 function getDefaultFilter() {
-    return { title: '', minSeverity: '', labels: [], pageIdx: 0, sortBy: '', sortDir: 1 }
+    return { title: '', minSeverity: '', labels: [], pageIdx: 0, sortBy: '', sortDir: 1, userId: null }
 }
