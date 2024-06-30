@@ -89,7 +89,9 @@ app.put('/api/bug', (req, res) => {
 })
 
 app.post('/api/bug/', (req, res) => {
-    const loggedInUser = userService.validateToken(res.cookies.loginToken)
+    console.log('hi from app.post')
+    const loggedInUser = userService.validateToken(req.cookies.loginToken)
+    console.log('loggedInUser:',loggedInUser)
     if (!loggedInUser) return res.status(401).send('Cannot add Bug')
 
     const { title, severity, description, labels } = req.body

@@ -102,5 +102,19 @@
       "_id": "u103",
       "fullname": "Shuki Ka"
     }
+  },
+  {
+    "title": "muki's bug",
+    "severity": 9,
+    "description": "a bug for muki",
+    "labels": [
+      "annoying"
+    ],
+    "_id": "NyDSp",
+    "createdAt": 1719774902398,
+    "creator": {
+      "_id": "u102",
+      "fullname": "Muki Ba"
+    }
   }
 ]
