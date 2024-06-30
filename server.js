@@ -160,6 +160,7 @@ app.post('/api/auth/signup', (req, res) => {
             res.status(400).send(`Couldn't signup user...`)
         })
 })
+
 // app.post('/api/auth/signup', (req, res) => {
 //     const { username, fullname, password, isAdmin } = req.body
 //     const userToSave = {
@@ -177,7 +178,7 @@ app.post('/api/auth/signup', (req, res) => {
 //         })
 // })
 
-app.get('/api/auth/login', (req, res) => {
+app.post('/api/auth/login', (req, res) => {
     const credentials = req.body
     userService.checkLogin(credentials)
         .then(user => {
@@ -191,6 +192,10 @@ app.get('/api/auth/login', (req, res) => {
         })
 })
 
+app.post('/api/auth/logout', (req, res) => {
+    res.clearCookie('loginToken')
+    res.send('logged-out!')
+})
 
 const port = 3030
 app.listen(port, () => loggerService.info(`Server ready at port ${port}`))
