@@ -70,9 +70,8 @@ export function BugFilter({ filterBy, onSetFilterBy, labels: availableLabels, pa
                 id="severity"
                 name="minSeverity"
             />
-
-            <fieldset>
-                <legend>Labels:</legend>
+            <div>
+                <h4>Labels:</h4>
                 {availableLabels.map((label, idx) => {
                     return <label htmlFor={label} key={idx}>
                         <input
@@ -85,7 +84,7 @@ export function BugFilter({ filterBy, onSetFilterBy, labels: availableLabels, pa
                         {label}
                     </label>
                 })}
-            </fieldset>
+            </div>
 
             <div>
                 <label htmlFor="sortBy">Sort By:</label>
