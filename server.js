@@ -2,6 +2,7 @@ import express from 'express'
 import cookieParser from 'cookie-parser'
 import fs from 'fs'
 import PDFDocument from 'pdfkit'
+import path from 'path'
 
 import { bugService } from './services/bug.service.js'
 import { userService } from './services/user.service.js'
@@ -91,7 +92,7 @@ app.put('/api/bug', (req, res) => {
 app.post('/api/bug/', (req, res) => {
     console.log('hi from app.post')
     const loggedInUser = userService.validateToken(req.cookies.loginToken)
-    console.log('loggedInUser:',loggedInUser)
+    console.log('loggedInUser:', loggedInUser)
     if (!loggedInUser) return res.status(401).send('Cannot add Bug')
 
     const { title, severity, description, labels } = req.body
@@ -211,5 +212,9 @@ app.get('/api/auth/:userId', (req, res) => {
         })
 })
 
-const port = 3030
-app.listen(port, () => loggerService.info(`Server ready at port ${port}`))
+app.get('/**', (req, res) => {
+    res.sendFile(path.resolve('public/index.html'))
+})
+
+const PORT = process.env.PORT || 3030
+app.listen(PORT, () => loggerService.info(`Server ready at port ${PORT}`))
