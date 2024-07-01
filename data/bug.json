@@ -16,21 +16,6 @@
     }
   },
   {
-    "_id": "c8qYZ",
-    "title": "resting bug",
-    "severity": 6,
-    "description": "bad bug",
-    "createdAt": 1718628196531,
-    "labels": [
-      "need-CR",
-      "dev-branch"
-    ],
-    "creator": {
-      "_id": "u102",
-      "fullname": "Muki Ba"
-    }
-  },
-  {
     "_id": "tS3pM",
     "title": "save bug",
     "severity": 6,
@@ -104,14 +89,15 @@
     }
   },
   {
-    "title": "muki's bug",
-    "severity": 9,
-    "description": "a bug for muki",
+    "title": "puki's bug",
+    "severity": 60,
+    "description": "sdfg",
     "labels": [
+      "ugly",
       "annoying"
     ],
-    "_id": "NyDSp",
-    "createdAt": 1719774902398,
+    "_id": "kyIiW",
+    "createdAt": 1719819676772,
     "creator": {
       "_id": "u102",
       "fullname": "Muki Ba"

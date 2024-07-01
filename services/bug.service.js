@@ -75,11 +75,13 @@ function remove(bugId, loggedinUser) {
 
 function save(bugToSave, loggedinUser) {
     if (bugToSave._id) {
-        if (!loggedinUser.isAdmin && bugToSave.creator._id !== loggedinUser._id) {
+        const bug = bugs.find(bug => bug._id === bugToSave._id)
+        
+        if (!loggedinUser.isAdmin && bug.creator._id !== loggedinUser._id) {
             return Promise.reject('Not your bug')
         }
-        const idx = bugs.findIndex(bug => bug._id === bugToSave._id)
-        bugs.splice(idx, 1, bugToSave)
+        bug.severity = +bugToSave.severity
+        bug.description = bugToSave.description
     } else {
         bugToSave._id = utilService.makeId()
         bugToSave.createdAt = Date.now()
@@ -90,6 +92,7 @@ function save(bugToSave, loggedinUser) {
         bugs.push(bugToSave)
     }
     return _saveBugsToFile()
+        .then(() =>console.log('bugToSave:',bugToSave))
         .then(() => bugToSave)
 }
 

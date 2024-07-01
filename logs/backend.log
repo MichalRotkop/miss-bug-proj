@@ -349,3 +349,52 @@
 30.6.2024, 22:12:09 - INFO - Server ready at port 3030
 30.6.2024, 22:14:32 - INFO - Server ready at port 3030
 30.6.2024, 22:15:02 - INFO - Server ready at port 3030
+30.6.2024, 22:26:45 - INFO - Server ready at port 3030
+30.6.2024, 22:27:13 - ERROR - Couldn't remove bug... | Not your bug
+30.6.2024, 22:28:53 - ERROR - Couldn't remove bug... | Not your bug
+30.6.2024, 22:29:07 - INFO - Server ready at port 3030
+30.6.2024, 23:11:20 - INFO - Server ready at port 3030
+30.6.2024, 23:11:39 - INFO - Server ready at port 3030
+30.6.2024, 23:11:52 - INFO - Server ready at port 3030
+30.6.2024, 23:12:17 - INFO - Server ready at port 3030
+30.6.2024, 23:12:42 - INFO - Server ready at port 3030
+30.6.2024, 23:12:52 - INFO - Server ready at port 3030
+30.6.2024, 23:13:28 - INFO - Server ready at port 3030
+30.6.2024, 23:13:48 - INFO - Server ready at port 3030
+30.6.2024, 23:15:30 - INFO - Server ready at port 3030
+30.6.2024, 23:15:35 - INFO - Server ready at port 3030
+30.6.2024, 23:16:09 - INFO - Server ready at port 3030
+30.6.2024, 23:17:15 - INFO - Server ready at port 3030
+30.6.2024, 23:18:51 - INFO - Server ready at port 3030
+30.6.2024, 23:19:58 - INFO - Server ready at port 3030
+30.6.2024, 23:20:27 - INFO - Server ready at port 3030
+30.6.2024, 23:21:39 - INFO - Server ready at port 3030
+30.6.2024, 23:21:43 - INFO - Server ready at port 3030
+30.6.2024, 23:21:44 - INFO - Server ready at port 3030
+30.6.2024, 23:23:54 - INFO - Server ready at port 3030
+30.6.2024, 23:24:29 - INFO - Server ready at port 3030
+30.6.2024, 23:24:34 - INFO - Server ready at port 3030
+30.6.2024, 23:25:10 - INFO - Server ready at port 3030
+30.6.2024, 23:26:53 - INFO - Server ready at port 3030
+30.6.2024, 23:26:59 - INFO - Server ready at port 3030
+30.6.2024, 23:27:05 - ERROR - Couldn't get Labels... | TypeError: bug.labels is not iterable
+1.7.2024, 10:33:08 - ERROR - Couldn't get Labels... | TypeError: bug.labels is not iterable
+1.7.2024, 10:33:56 - INFO - Server ready at port 3030
+1.7.2024, 10:34:03 - ERROR - Couldn't get Labels... | TypeError: bug.labels is not iterable
+1.7.2024, 10:35:23 - ERROR - Couldn't get Labels... | TypeError: bug.labels is not iterable
+1.7.2024, 10:35:48 - INFO - Server ready at port 3030
+1.7.2024, 10:39:09 - INFO - Server ready at port 3030
+1.7.2024, 10:39:45 - ERROR - Invalid Credentials... | Error: value must not be null or undefined
+1.7.2024, 10:40:16 - ERROR - Couldn't remove bug... | Not your bug
+1.7.2024, 10:40:26 - ERROR - Couldn't save bug... | Not your bug
+1.7.2024, 10:41:17 - INFO - Server ready at port 3030
+1.7.2024, 10:42:01 - INFO - Server ready at port 3030
+1.7.2024, 10:42:13 - INFO - Server ready at port 3030
+1.7.2024, 10:48:07 - INFO - Server ready at port 3030
+1.7.2024, 10:49:42 - INFO - Server ready at port 3030
+1.7.2024, 10:49:54 - INFO - Server ready at port 3030
+1.7.2024, 10:50:04 - INFO - Server ready at port 3030
+1.7.2024, 10:50:14 - INFO - Server ready at port 3030
+1.7.2024, 10:50:40 - INFO - Server ready at port 3030
+1.7.2024, 10:50:44 - INFO - Server ready at port 3030
+1.7.2024, 10:50:53 - INFO - Server ready at port 3030

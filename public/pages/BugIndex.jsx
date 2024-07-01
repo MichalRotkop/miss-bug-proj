@@ -97,7 +97,7 @@ export function BugIndex() {
     const bugToSave = { ...bug, severity, description }
     bugService.save(bugToSave)
       .then((savedBug) => {
-        // console.log('Updated Bug:', savedBug)
+        console.log('Updated Bug:', savedBug)
         setBugs(prevBugs => prevBugs.map((currBug) =>
           currBug._id === savedBug._id ? savedBug : currBug
         ))
