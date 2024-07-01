@@ -1,21 +1,5 @@
 [
   {
-    "_id": "EyUex",
-    "title": "undefined bug",
-    "severity": 0,
-    "description": "",
-    "createdAt": 1719175164621,
-    "labels": [
-      "critical",
-      "need-CR",
-      "dev-branch"
-    ],
-    "creator": {
-      "_id": "u101",
-      "fullname": "Puki Ja"
-    }
-  },
-  {
     "_id": "tS3pM",
     "title": "save bug",
     "severity": 6,

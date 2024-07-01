@@ -4,7 +4,7 @@
     "username": "puki",
     "fullname": "Puki Ja",
     "password": "secret1",
-    "isAdmin": true
+    "isAdmin": false
   },
   {
     "_id": "u102",
@@ -33,5 +33,12 @@
     "password": "secret5",
     "isAdmin": false,
     "_id": "6EGH7"
+  },
+  {
+    "username": "admin",
+    "fullname": "admin",
+    "password": "admin",
+    "isAdmin": true,
+    "_id": "u104"
   }
 ]
