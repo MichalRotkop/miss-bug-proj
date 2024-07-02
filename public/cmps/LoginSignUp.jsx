@@ -21,15 +21,21 @@ export function LoginSignup({ onSetUser }) {
     function login(credentials) {
         userService.login(credentials)
             .then(onSetUser)
-            .then(() => { showSuccessMsg('Logged in successfully') })
-            .catch((err) => { showErrorMsg('Oops try again') })
+            .then(() => showSuccessMsg('Logged in successfully'))
+            .catch((err) => {
+                console.log('err', err)
+                showErrorMsg('Oops try again')
+            })
     }
 
     function signup(credentials) {
         userService.signup(credentials)
             .then(onSetUser)
-            .then(() => { showSuccessMsg('Signed in successfully') })
-            .catch((err) => { showErrorMsg('Oops try again') })
+            .then(() => showSuccessMsg('Signed in successfully'))
+            .catch((err) => {
+                console.log('err', err)
+                showErrorMsg('Oops try again')
+            })
     }
 
     return (

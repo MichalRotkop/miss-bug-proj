@@ -32,7 +32,7 @@ export function UserDetails() {
                 navigate('/')
             })
     }
-
+    
     if (!user) return <div>Loading...</div>
     return (
         <section className="user-details">

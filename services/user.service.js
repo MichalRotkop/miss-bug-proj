@@ -38,24 +38,30 @@ function remove(userId) {
     return _saveUsersToFile()
 }
 
-function save(user) {
-    user._id = utilService.makeId()
+function save({ fullname, username, password }) {
+    if (!fullname || !username || !password) return Promise.reject('Incomplete credentials')
+
+    let user = {
+        _id: utilService.makeId(),
+        fullname,
+        username,
+        password
+    }
     users.push(user)
-    return _saveUsersToFile().then(() => ({
-        _id: user._id,
-        fullname: user.fullname,
-        isAdmin: user.isAdmin,
-    }))
+    return _saveUsersToFile()
+        .then(() => {
+            delete user.password
+            return user
+        })
 }
 
 function checkLogin({ username, password }) {
     var user = users.find(user => user.username === username && user.password === password)
-    if (user) {
-        user = {
-            _id: user._id,
-            fullname: user.fullname,
-            isAdmin: user.isAdmin,
-        }
+    if (!user) Promise.reject('Invalis username or password')
+    user = {
+        _id: user._id,
+        fullname: user.fullname,
+        isAdmin: user.isAdmin,
     }
     return Promise.resolve(user)
 }
